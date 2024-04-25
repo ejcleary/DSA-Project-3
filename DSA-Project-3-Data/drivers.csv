@@ -1,0 +1,51 @@
+driverId,number,code,forename,surname,dob,nationality
+1,44,HAM,Lewis,Hamilton,1/7/1985,British
+3,6,ROS,Nico,Rosberg,6/27/1985,German
+4,14,ALO,Fernando,Alonso,7/29/1981,Spanish
+8,7,RAI,Kimi,Raikonnen,10/17/1979,Finnish
+9,88,KUB,Robert,Kubica,12/7/1984,Polish
+13,19,MAS,Felipe,Massa,4/25/1981,Brazilian
+18,22,BUT,Jenson,Button,1/19/1980,British
+20,5,VET,Sebastian,Vettel,7/3/1987,German
+154,8,GRO,Romain,Grosjean,4/17/1986,French
+807,27,HUL,Nico,Hulkenberg,8/19/1987,German
+813,13,MAL,Pastor,Maldonado,3/9/1985,Venezuelan
+814,40,DIR,Paul,di Resta,4/16/1986,British
+815,11,PER,Sergio,Perez,1/26/1990,Mexican
+817,3,RIC,Daniel,Ricciardo,7/1/1989,Australian
+821,21,GUT,Esteban,Gutiérrez,8/5/1991,Mexican
+822,77,BOT,Valtteri,Bottas,8/28/1989,Finnish
+825,20,MAG,Kevin,Magnussen,10/5/1992,Danish
+826,26,KVY,Daniil,Kvyat,4/26/1994,Russian
+828,9,ERI,Marcus,Ericsson,9/2/1990,Swedish
+829,28,STE,Will,Stevens,6/28/1991,British
+830,33,VER,Max,Verstappen,9/30/1997,Dutch
+831,12,NAS,Felipe,Nasr,8/21/1992,Brazilian
+832,55,SAI,Carlos,Sainz,9/1/1994,Spanish
+833,98,MER,Roberto,Merhi,3/22/1991,Spanish
+834,53,RSS,Alexander,Rossi,9/25/1991,American
+835,30,PAL,Jolyon,Palmer,1/20/1991,British
+836,94,WEH,Pascal,Wehrlein,10/18/1994,German
+837,88,HAR,Rio,Haryanto,1/22/1993,Indonesian
+838,2,VAN,Stoffel,Vandoorne,3/26/1992,Belgian
+839,31,OCO,Esteban,Ocon,9/17/1996,French
+840,18,STR,Lance,Stroll,10/29/1998,Canadian
+841,99,GIO,Antonio,Giovinazzi,12/14/1993,Italian
+843,28,HAR,Brendon,Hartley,11/10/1989,New Zealander
+844,16,LEC,Charles,Leclerc,10/16/1997,Monegasque
+845,35,SIR,Sergey,Sirotkin,8/27/1995,Russian
+846,4,NOR,Lando,Norris,11/13/1999,British
+847,63,RUS,George,Russell,2/15/1998,British
+848,23,ALB,Alexander,Albon,3/23/1996,Thai
+849,6,LAT,Nicholas,Latifi,6/29/1995,Canadian
+850,51,FIT,Pietro,Fittipaldi,6/25/1996,Brazilian
+851,89,AIT,Jack,Aitken,9/23/1995,British
+852,22,TSU,Yuki,Tsunoda,5/11/2000,Japanese
+853,9,MAZ,Nikita,Mazepin,3/2/1999,Russian
+854,47,MSC,Mick,Schumacher,3/22/1999,German
+855,24,ZHO,Guanyu,Zhou,5/30/1999,Chinese
+856,21,DEV,Nyck,de Vries,2/6/1995,Dutch
+857,81,PIA,Oscar,Piastri,4/6/2001,Australian
+858,2,SAR,Logan,Sargeant,12/31/2000,American
+859,40,LAW,Liam,Lawson,2/11/2002,New Zealander
+860,38,BEA,Oliver,Bearman,5/8/2005,British
