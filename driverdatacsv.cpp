@@ -1,14 +1,16 @@
-#include <fstream> 
-#include <iostream> 
-#include <string>
+#include <iostream>
+#include <fstream>
+#include <sstream>
 #include <unordered_map>
+#include <string>
+#include <tuple>
 
 using namespace std;
 
 //Code to read files inspired by geeksforgeeks
 
 void readDriverFile() {  //reads the contents of the driver files and returns
-unordered_map<int,tuple<string, string, int> driverData> driversMap; 
+unordered_map<string,tuple<string, string, string>> driversMap;
 ifstream driversFile("drivers.csv");
 string line;
 
@@ -21,11 +23,11 @@ while (getline(driversFile, line)) {
     getline(ss, number, ',');
     driversMap[driverID] = make_tuple(firstName, surName, number);
 }
-driversFile.close()
+driversFile.close();
 }
 
 void readRacesFile() {  //reads the contents of the racers files and returns
-unordered_map<int,tuple<string, string, int> driverData> racesMap;
+unordered_map<string,tuple<string, string, string>> racesMap;
 
 ifstream racersFile("racers.csv");
 string line;
@@ -37,9 +39,9 @@ while (getline(racersFile, line)) {
     getline(ss, year, ',');
     getline(ss, round, ',');
     getline(ss, name, ',');
-    drivers[id] = make_tuple(year, round, name);
+    drivers[id] = make_tuple(year, round, stoiname);
 }
-racersFile.close()
+racersFile.close();
 }
 
 void readLapTimeFile(){
