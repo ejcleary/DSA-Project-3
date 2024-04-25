@@ -17,6 +17,3 @@ unordered_map<string, pair<string, string>> racesMap;
 
 
 
-
-
-
