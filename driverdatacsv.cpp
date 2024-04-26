@@ -6,13 +6,15 @@
 #include <tuple>
 #include <set>
 #include <vector>
+#include <utility>
+#include "F1Data.h"
 
 using namespace std;
 
 //Code to read files inspired by geeksforgeeks
 
-void readDriverFile() {  //reads the contents of the driver files and returns
-unordered_map<string,tuple<string, string, string>> driversMap;
+void Formula1Data::readDriverFile() {  //reads the contents of the driver files and returns
+//unordered_map<string,tuple<string, string, string>> driversMap;
 ifstream driversFile("drivers.csv");
 string line;
 
@@ -29,8 +31,8 @@ driversFile.close();
 }
 
 
-void readRacesFile() {  //reads the contents of the racers files and returns
-unordered_map<string,pair<string, string>> racesMap;
+void Formula1Data::readRacesFile() {  //reads the contents of the racers files and returns
+//unordered_map<string,pair<string, string>> racesMap;
 
 ifstream racersFile("racers.csv");
 string line;
@@ -48,10 +50,10 @@ racersFile.close();
 }
 
 
-void readLapTimeFile(){
-    unordered_map<string,vector<tuple<int, int, int>>> lapTimeMap;
+void Formula1Data::readLapTimeFile(){
+    //unordered_map<string,vector<tuple<int, int, int>>> lapTimeMap;
     set<pair<string,string>> RaceIDDriverIDPairs;
-    unordered_map<string,vector<string>> RaceIDDriverIDMap;
+    //unordered_map<string,vector<string>> RaceIDDriverIDMap;
     //Inspired by geeksforgeeks
 
     ifstream lapTimeFile("tap_times.csv");
@@ -78,12 +80,12 @@ void readLapTimeFile(){
 }
 
 
-vector<pair<string,int>> raceResuls(int year, int round){   //this function will return a vector of pairs. pairs of driver info and thier final position
+vector<pair<string,int>> Formula1Data::raceResults(string year, string round){   //this function will return a vector of pairs. pairs of driver info and thier final position
     string raceID = racesMap[year+round].first; //getting the raceID
 
     vector<string> driversInRace;   //vector of all driversIDs in the race
-    for(auto keyValPair : RaceIDDriverIDMap){       //populate vector
-        driversInRace.push_back(keyValPair.second);
+    for(int j = 0; j < RaceIDDriverIDMap[raceID].size(); j++){       //populate vector
+        driversInRace.push_back(RaceIDDriverIDMap[raceID][j]);
     }
 
     int numLaps = lapTimeMap[driversInRace[0]+raceID].size();  //getting number of laps so I can only evaluate that lap
@@ -93,8 +95,8 @@ vector<pair<string,int>> raceResuls(int year, int round){   //this function will
         int position = get<2>(lapTimeMap[raceID + driversInRace[i]][numLaps-1]);
         string firstName = get<0>(driversMap[driversInRace[i]]);
         string lastName = get<1>(driversMap[driversInRace[i]]);
-        string number = get<3>(driversMap[driversInRace[i]])
-        string driverInfo = number + "|" + firstname + " " + lastName;
+        string number = get<2>(driversMap[driversInRace[i]]);
+        string driverInfo = number + "|" + firstName + " " + lastName;
         finalVect.push_back(make_pair(driverInfo, position));
     }
     return finalVect;

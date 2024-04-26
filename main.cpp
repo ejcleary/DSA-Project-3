@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include "F1Data.h"
 using namespace std;
 
 unordered_map<string, vector<string>> seasonsMap;
