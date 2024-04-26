@@ -1,13 +1,27 @@
-#include <fstream> 
-#include <iostream> 
-#include <string>
+#include <iostream>
+#include <fstream>
+#include <sstream>
 #include <unordered_map>
+#include <string>
+#include <tuple>
+#include <set>
+#include <vector>
+#include <utility>
+using namespace std;
 
 class Formula1Data {
-   public:
+    private:
+    int year;
+    int round;
+    unordered_map<string,tuple<string, string, string>> driversMap;
+    unordered_map<string,pair<string, string>> racesMap;
+    unordered_map<string,vector<tuple<int, int, int>>> lapTimeMap;
+    unordered_map<string,vector<string>> RaceIDDriverIDMap;
 
-   private:
-    
+public:
+    void readDriverFile();
+    void readRacesFile();
+    void readLapTimeFile();
+    vector<pair<string,int>> raceResults(string year, string round);
 
-
-}
+};
