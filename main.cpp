@@ -13,9 +13,9 @@ using namespace std;
 
 int main() {
     Formula1Data F1Info;
-    F1Info.readDriverFile();
-    F1Info.readRacesFile();
-    F1Info.readLapTimeFile();
+    //F1Info.readDriverFile();
+    //F1Info.readRacesFile();
+    //F1Info.readLapTimeFile();
 
     //load all csv files
     cout << "Welcome to the Formula 1 Database!" << endl;
@@ -28,7 +28,7 @@ int main() {
     }
     cout << "Please select a race:" << endl;
 
-    F1Info.printRaces(to_string(year));
+    //F1Info.printRaces(to_string(year));
 
     cout << "Please select how you would like to view the data:" << endl;
     cout << "1. View Race Results" << endl;
@@ -39,12 +39,6 @@ int main() {
     cin >> choice;
 
     if (choice == 1) {
-        string driverId, raceId;
-        cout << "Please enter the driver ID: ";
-        cin >> driverId;
-        cout << "Please enter the race ID: ";
-        cin >> raceId;
-
         auto quick_timer = chrono::high_resolution_clock::now();
         // quickSort();
         // View winner (sort total lap times per driver = race result)

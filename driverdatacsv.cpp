@@ -102,6 +102,7 @@ vector<pair<string,int>> Formula1Data::raceResults(string year, string round){  
         string driverInfo = number + "|" + firstName + " " + lastName;
         finalVect.push_back(make_pair(driverInfo, position));
     }
+    
     return finalVect;
 }
 
