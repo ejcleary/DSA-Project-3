@@ -8,5 +8,4 @@ include_directories(.)
 add_executable(DSA_Project_3
         driverdatacsv.cpp
         F1Data.h
-        main.cpp
-        sort_methods.cpp)
+        main.cpp)

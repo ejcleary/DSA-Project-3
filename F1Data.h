@@ -35,6 +35,7 @@ public:
 
 
 
+/*
 
 //Quick Sort helper functions
 void swap(int *a, int *b) {
@@ -127,4 +128,4 @@ void mergeSort(vector<pair<string, int>> unsortedvect, int left, int right) {
 
         merge(unsortedvect, left, mid, right);
     }
-}
+}*/
