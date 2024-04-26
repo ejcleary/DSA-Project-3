@@ -24,9 +24,10 @@ int main() {
     cout << "Please select a year [2015-2024]:" << endl;
     int year;
     cin >> year;
-    if (year < 2015 || year > 2024) {
+     while (year < 2015 || year > 2024) {
         cout << "The year entered is not in range." << endl;
-        return -1;
+        cout << "Please select a year [2015-2024]:" << endl;
+        cin >> year;
     }
     cout << "Please select a race:" << endl;
 
@@ -41,7 +42,16 @@ int main() {
     cout << "3. View Driver Positions by Lap" << endl;
 
     int choice;
+    
     cin >> choice;
+    while (choice < 1 || choice > 3) {
+        cout << "The choice entered is not available." << endl;
+        cout << "Please select how you would like to view the data:" << endl;
+        cout << "1. View Race Results" << endl;
+        cout << "2. View Fastest Lap per Driver" << endl;
+        cout << "3. View Driver Positions by Lap" << endl;
+        cin >> choice;
+    }
 
     if (choice == 1) {
 
