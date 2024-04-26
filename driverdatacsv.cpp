@@ -13,7 +13,7 @@ using namespace std;
 
 //Code to read files inspired by geeksforgeeks
 
-void Formula1Data::readDriverFile() 2{  //reads the contents of the driver files and returns
+void Formula1Data::readDriverFile() {  //reads the contents of the driver files and returns
 //unordered_map<string,tuple<string, string, string>> driversMap;
 ifstream driversFile("drivers.csv");
     if (!driversFile.is_open()) {
