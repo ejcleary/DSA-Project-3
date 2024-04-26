@@ -5,6 +5,7 @@
 #include <string>
 #include <tuple>
 #include <set>
+#include <vector>
 
 using namespace std;
 
@@ -27,8 +28,9 @@ while (getline(driversFile, line)) {
 driversFile.close();
 }
 
+
 void readRacesFile() {  //reads the contents of the racers files and returns
-unordered_map<string,tuple<string, string, string>> racesMap;
+unordered_map<string,pair<string, string>> racesMap;
 
 ifstream racersFile("racers.csv");
 string line;
@@ -40,10 +42,11 @@ while (getline(racersFile, line)) {
     getline(ss, year, ',');
     getline(ss, round, ',');
     getline(ss, name, ',');
-    drivers[id] = make_tuple(year, round, stoiname);
+    racesMap[year+round] = make_pair(id, name);
 }
 racersFile.close();
 }
+
 
 void readLapTimeFile(){
     unordered_map<string,vector<tuple<int, int, int>>> lapTimeMap;
@@ -74,3 +77,25 @@ void readLapTimeFile(){
     }
 }
 
+
+vector<pair<string,int>> raceResuls(int year, int round){   //this function will return a vector of pairs. pairs of driver info and thier final position
+    string raceID = racesMap[year+round].first; //getting the raceID
+
+    vector<string> driversInRace;   //vector of all driversIDs in the race
+    for(auto keyValPair : RaceIDDriverIDMap){       //populate vector
+        driversInRace.push_back(keyValPair.second);
+    }
+
+    int numLaps = lapTimeMap[driversInRace[0]+raceID].size();  //getting number of laps so I can only evaluate that lap
+    vector<pair<string, int>> finalVect;    //creating the return vector
+
+    for(int i = 0; i < driversInRace.size(); i++){
+        int position = get<2>(lapTimeMap[raceID + driversInRace[i]][numLaps-1]);
+        string firstName = get<0>(driversMap[driversInRace[i]]);
+        string lastName = get<1>(driversMap[driversInRace[i]]);
+        string number = get<3>(driversMap[driversInRace[i]])
+        string driverInfo = number + "|" + firstname + " " + lastName;
+        finalVect.push_back(make_pair(driverInfo, position));
+    }
+    return finalVect;
+}
