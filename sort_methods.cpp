@@ -1,3 +1,4 @@
+/*
 //from lecture slides
 #ifndef DSA_PROJECT_3_SORT_METHODS_H
 #define DSA_PROJECT_3_SORT_METHODS_H
@@ -100,3 +101,4 @@ void mergeSort(int arr[], int left, int right) {
 
 
 #endif //DSA_PROJECT_3_SORT_METHODS_H
+*/

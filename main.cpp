@@ -9,6 +9,8 @@
 #include <chrono>
 #include "F1Data.h"
 
+
+
 using namespace std;
 
 int main() {
@@ -30,6 +32,9 @@ int main() {
 
     F1Info.printRaces(to_string(year));
 
+    string round;
+    cin >> round;
+
     cout << "Please select how you would like to view the data:" << endl;
     cout << "1. View Race Results" << endl;
     cout << "2. View Fastest Lap per Driver" << endl;
@@ -39,26 +44,26 @@ int main() {
     cin >> choice;
 
     if (choice == 1) {
-        string driverId, raceId;
-        cout << "Please enter the driver ID: ";
-        cin >> driverId;
-        cout << "Please enter the race ID: ";
-        cin >> raceId;
+
+        vector<pair<string, int>> unsortedvect = F1Info.raceResults(to_string(year), round);
+        int low = 0;
+        int high = unsortedvect.size()-1;
 
         auto quick_timer = chrono::high_resolution_clock::now();
-        // quickSort();
+        quickSort(unsortedvect, low ,high);
         // View winner (sort total lap times per driver = race result)
         auto end_quick = chrono::high_resolution_clock::now();
         auto quick_duration = chrono::duration_cast<chrono::microseconds>(end_quick - quick_timer).count();
         cout << "Time taken by Quick Sort: " << quick_duration << " microseconds" << endl;
 
         auto merge_timer = chrono::high_resolution_clock::now();
-        // mergeSort();
+        mergeSort(unsortedvect, low ,high);
         // View winner (sort total lap times per driver = race result)
         auto end_merge = chrono::high_resolution_clock::now();
         auto merge_duration = chrono::duration_cast<chrono::microseconds>(end_merge - merge_timer).count();
         cout << "Time taken by Merge Sort: " << merge_duration << " microseconds" << endl;
         cout << "Results:" << endl;
+
         //print results of the sorting method
     }
 
