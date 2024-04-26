@@ -1,0 +1,13 @@
+# ninja log v5
+11	1249	7358654309794652	CMakeFiles/DSA_Project_3.dir/sort_methods.cpp.obj	88f1a7a5d17a027d
+57	1545	7358654312766667	CMakeFiles/DSA_Project_3.dir/main.cpp.obj	5640896bbb7c02ab
+11	1352	7358664505459978	CMakeFiles/DSA_Project_3.dir/main.cpp.obj	5640896bbb7c02ab
+4	2044	7358664512351866	CMakeFiles/DSA_Project_3.dir/driverdatacsv.cpp.obj	d3a0d3da794d21e1
+2044	3197	7358664523804941	DSA_Project_3.exe	428356a2d0601830
+5	2530	7358665582622291	CMakeFiles/DSA_Project_3.dir/driverdatacsv.cpp.obj	d3a0d3da794d21e1
+2532	3281	7358665590092307	DSA_Project_3.exe	428356a2d0601830
+6	2336	7358666176863825	CMakeFiles/DSA_Project_3.dir/driverdatacsv.cpp.obj	d3a0d3da794d21e1
+2340	3063	7358666184077949	DSA_Project_3.exe	428356a2d0601830
+10	1439	7358668748965781	CMakeFiles/DSA_Project_3.dir/main.cpp.obj	5640896bbb7c02ab
+4	2148	7358668756026872	CMakeFiles/DSA_Project_3.dir/driverdatacsv.cpp.obj	d3a0d3da794d21e1
+2149	2827	7358668762765459	DSA_Project_3.exe	428356a2d0601830
