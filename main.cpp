@@ -20,6 +20,7 @@ int main() {
     cin >> year;
     if (year < 2015 || year > 2024) {
         cout << "The year entered is not in range." << endl;
+        return -1;
     }
     cout << "Please select a race:" << endl;
     //print races based on year
@@ -72,29 +73,6 @@ int main() {
 
         auto merge_timer = chrono::high_resolution_clock::now();
         //mergeSort();
-        auto end_merge = chrono::high_resolution_clock::now();
-        auto merge_duration = chrono::duration_cast<chrono::microseconds>(end_merge - merge_timer).count();
-        cout << "Time taken by Merge Sort: " << merge_duration << " microseconds" << endl;
-        cout << "Results:" << endl;
-        //print results of the sorting method
-    }
-
-    if (choice == 3) {
-        double last_lap;
-        cout << "Please select a lap to view the driver positions (1-" << last_lap << "): "<< endl;
-        string chosen_lap;
-        cin >> chosen_lap;
-
-        auto quick_timer = chrono::high_resolution_clock::now();
-        // quickSort();
-        // View driver position  and see positioning of that lap sorted from first to last
-        auto end_quick = chrono::high_resolution_clock::now();
-        auto quick_duration = chrono::duration_cast<chrono::microseconds>(end_quick - quick_timer).count();
-        cout << "Time taken by Quick Sort: " << quick_duration << " microseconds" << endl;
-
-        auto merge_timer = chrono::high_resolution_clock::now();
-        // mergeSort();
-        // View driver position  and see positioning of that lap sorted from first to last
         auto end_merge = chrono::high_resolution_clock::now();
         auto merge_duration = chrono::duration_cast<chrono::microseconds>(end_merge - merge_timer).count();
         cout << "Time taken by Merge Sort: " << merge_duration << " microseconds" << endl;
