@@ -26,7 +26,7 @@ public:
 
     void printRaces(int year);
     vector<pair<string,int>> raceResults(string year, string round);
-
+    vector<pair<string,int>> fastestLaps(string year, string round);
 };
 
 
