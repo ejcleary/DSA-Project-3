@@ -8,7 +8,7 @@
 #include <unordered_map>
 #include <chrono>
 #include "F1Data.h"
-
+#include "sorts.h"
 
 
 using namespace std;
@@ -48,24 +48,32 @@ int main() {
         vector<pair<string, int>> unsortedvect = F1Info.raceResults(to_string(year), round);
         int low = 0;
         int high = unsortedvect.size()-1;
+        for(auto pair : unsortedvect){
+            cout << pair.second  << " " << pair.first << endl;
+        }
 
         auto quick_timer = chrono::high_resolution_clock::now();
-        //quickSort(unsortedvect, low ,high);
+        quickSort(unsortedvect, low ,high);
         // View winner (sort total lap times per driver = race result)
         auto end_quick = chrono::high_resolution_clock::now();
         auto quick_duration = chrono::duration_cast<chrono::microseconds>(end_quick - quick_timer).count();
         cout << "Time taken by Quick Sort: " << quick_duration << " microseconds" << endl;
 
         auto merge_timer = chrono::high_resolution_clock::now();
-        //mergeSort(unsortedvect, low ,high);
+        mergeSort(unsortedvect, low ,high);
         // View winner (sort total lap times per driver = race result)
         auto end_merge = chrono::high_resolution_clock::now();
         auto merge_duration = chrono::duration_cast<chrono::microseconds>(end_merge - merge_timer).count();
         cout << "Time taken by Merge Sort: " << merge_duration << " microseconds" << endl;
         cout << "Results:" << endl;
 
-        //print results of the sorting method
+        for(auto pair : unsortedvect){
+            cout << pair.second  << " " << pair.first << endl;
+        }
     }
+
+
+
 
     if (choice == 2) {
         string driverId, raceId;
