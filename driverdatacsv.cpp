@@ -92,12 +92,41 @@ vector<pair<string,int>> Formula1Data::raceResults(string year, string round){  
     vector<pair<string, int>> finalVect;    //creating the return vector
 
     for(int i = 0; i < driversInRace.size(); i++){
-        int position = get<2>(lapTimeMap[raceID + driversInRace[i]][numLaps-1]);
+        int position = get<1>(lapTimeMap[raceID + driversInRace[i]][numLaps-1]);
         string firstName = get<0>(driversMap[driversInRace[i]]);
         string lastName = get<1>(driversMap[driversInRace[i]]);
         string number = get<2>(driversMap[driversInRace[i]]);
         string driverInfo = number + "|" + firstName + " " + lastName;
         finalVect.push_back(make_pair(driverInfo, position));
+    }
+    return finalVect;
+}
+
+vector<pair<string,int>> Formula1Data::fastestLaps(string year, string round){  //returns a vector of a single drivers lap times
+    string raceID = racesMap[year+round].first; //getting the raceID
+
+    vector<string> driversInRace;   //vector of all driversIDs in the race
+    for(int j = 0; j < RaceIDDriverIDMap[raceID].size(); j++){       //populate vector
+        driversInRace.push_back(RaceIDDriverIDMap[raceID][j]);
+    }
+
+    int numLaps = lapTimeMap[driversInRace[0]+raceID].size();  //getting number of laps so I can only evaluate that lap
+    vector<pair<string, int>> finalVect;    //creating the return vector
+
+    for(int i = 0; i < driversInRace.size(); i++){
+        int lapTime;
+        int fastestLap = INT_MAX;
+        for(int k = 0; k < numLaps; k++) {
+            lapTime = get<2>(lapTimeMap[raceID + driversInRace[i]][k]);
+            if(lapTime <= fastestLap) {
+                fastestLap = lapTime;
+            }
+        }
+        string firstName = get<0>(driversMap[driversInRace[i]]);
+        string lastName = get<1>(driversMap[driversInRace[i]]);
+        string number = get<2>(driversMap[driversInRace[i]]);
+        string driverInfo = number + "|" + firstName + " " + lastName;
+        finalVect.push_back(make_pair(driverInfo, fastestLap));
     }
     return finalVect;
 }
