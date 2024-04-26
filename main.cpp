@@ -12,6 +12,7 @@
 using namespace std;
 
 int main() {
+    Formula1Data F1Info;
 
     //load all csv files
     cout << "Welcome to the Formula 1 Database!" << endl;
@@ -23,7 +24,7 @@ int main() {
         return -1;
     }
     cout << "Please select a race:" << endl;
-    //print races based on year
+    F1Info.printRaces(to_string(year));
     cout << "Please select how you would like to view the data:" << endl;
     cout << "1. View Race Results" << endl;
     cout << "2. View Fastest Lap per Driver" << endl;
