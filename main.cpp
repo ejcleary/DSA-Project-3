@@ -13,6 +13,9 @@ using namespace std;
 
 int main() {
     Formula1Data F1Info;
+    F1Info.readDriverFile();
+    F1Info.readRacesFile();
+    F1Info.readLapTimeFile();
 
     //load all csv files
     cout << "Welcome to the Formula 1 Database!" << endl;
