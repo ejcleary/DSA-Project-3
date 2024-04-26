@@ -23,7 +23,7 @@ int main() {
         return -1;
     }
     cout << "Please select a race:" << endl;
-    //print races based on year
+    printRaces(year);
     cout << "Please select how you would like to view the data:" << endl;
     cout << "1. View Race Results" << endl;
     cout << "2. View Fastest Lap per Driver" << endl;
