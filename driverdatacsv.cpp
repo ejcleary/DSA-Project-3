@@ -16,8 +16,11 @@ using namespace std;
 void Formula1Data::readDriverFile() {  //reads the contents of the driver files and returns
 //unordered_map<string,tuple<string, string, string>> driversMap;
 ifstream driversFile("drivers.csv");
+    if (!driversFile.is_open()) {
+        cerr << "Error: Unable to open file" << endl;
+        return; // Exit the function early
+    }
 string line;
-
 while (getline(driversFile, line)) {
     stringstream ss(line);
     string driverID, firstName, surName, number;
@@ -34,7 +37,7 @@ driversFile.close();
 void Formula1Data::readRacesFile() {  //reads the contents of the racers files and returns
 //unordered_map<string,pair<string, string>> racesMap;
 
-ifstream racersFile("racers.csv");
+ifstream racersFile("races.csv");
 string line;
 
 while (getline(racersFile, line)) {
@@ -57,7 +60,7 @@ void Formula1Data::readLapTimeFile(){
     //unordered_map<string,vector<string>> RaceIDDriverIDMap;
     //Inspired by geeksforgeeks
 
-    ifstream lapTimeFile("tap_times.csv");
+    ifstream lapTimeFile("lap_times.csv");
     string line;
 
     while (getline(lapTimeFile, line)) {
