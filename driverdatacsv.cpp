@@ -44,6 +44,7 @@ while (getline(racersFile, line)) {
     getline(ss, year, ',');
     getline(ss, round, ',');
     getline(ss, name, ',');
+    racesInYearMap[year].push_back(make_pair(round, name));
     racesMap[year+round] = make_pair(id, name);
 }
 racersFile.close();
@@ -79,7 +80,6 @@ void Formula1Data::readLapTimeFile(){
     }
 }
 
-
 vector<pair<string,int>> Formula1Data::raceResults(string year, string round){   //this function will return a vector of pairs. pairs of driver info and thier final position
     string raceID = racesMap[year+round].first; //getting the raceID
 
@@ -100,4 +100,16 @@ vector<pair<string,int>> Formula1Data::raceResults(string year, string round){  
         finalVect.push_back(make_pair(driverInfo, position));
     }
     return finalVect;
+}
+
+void Formula1Data::printRaces(int year) {
+    //For a given year, print all the races in order
+    while (it != racesInYearMap.end()) {
+        if (it->first == year) {
+            for (int ii = 0; ii < it->second.size(); ii++) {
+                cout << "Race " << it->second[ii].first << ":" << it->second[ii].second << endl;
+            }
+        }
+        it++;
+    }
 }

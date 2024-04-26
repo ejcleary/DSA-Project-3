@@ -15,6 +15,7 @@ class Formula1Data {
     int round;
     unordered_map<string,tuple<string, string, string>> driversMap;
     unordered_map<string,pair<string, string>> racesMap;
+    unordered_map<string,vector<pair<string, string>>> racesInYearMap;
     unordered_map<string,vector<tuple<int, int, int>>> lapTimeMap;
     unordered_map<string,vector<string>> RaceIDDriverIDMap;
 
@@ -22,6 +23,10 @@ public:
     void readDriverFile();
     void readRacesFile();
     void readLapTimeFile();
+
+    void printRaces(int year);
     vector<pair<string,int>> raceResults(string year, string round);
 
 };
+
+
