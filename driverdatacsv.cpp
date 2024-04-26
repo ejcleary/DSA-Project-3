@@ -131,13 +131,9 @@ vector<pair<string,int>> Formula1Data::fastestLaps(string year, string round){  
     return finalVect;
 }
 
-void Formula1Data::printRaces(int year) {
+void Formula1Data::printRaces(string year) {
     //For a given year, print all the races in order
-    while (it != racesInYearMap.end()) {
-        if (it->first == year) {
-            for (int ii = 0; ii < it->second.size(); ii++) {
-                cout << "Race " << it->second[ii].first << ":" << it->second[ii].second << endl;
-            }
-        }
-        it++;
+    for (auto pair : racesInYearMap[year]) {
+        cout << "Race " << pair.first << ":" << pair.second << endl;
     }
+}

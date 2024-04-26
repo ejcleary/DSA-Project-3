@@ -24,7 +24,7 @@ public:
     void readRacesFile();
     void readLapTimeFile();
 
-    void printRaces(int year);
+    void printRaces(string year);
     vector<pair<string,int>> raceResults(string year, string round);
     vector<pair<string,int>> fastestLaps(string year, string round);
 };
