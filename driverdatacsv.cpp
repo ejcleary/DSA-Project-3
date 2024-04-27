@@ -100,7 +100,7 @@ vector<pair<string,int>> Formula1Data::raceResults(string year, string round){  
         string firstName = get<0>(driversMap[driversInRace[i]]);
         string lastName = get<1>(driversMap[driversInRace[i]]);
         string number = get<2>(driversMap[driversInRace[i]]);
-        string driverInfo = number + "|" + firstName + " " + lastName;
+        string driverInfo = firstName + " " + lastName + " [#" + number + "]";
         finalVect.push_back(make_pair(driverInfo, position));
     }
     
