@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <unordered_map>
+#include <map>
 #include <string>
 #include <tuple>
 #include <set>
@@ -16,8 +17,11 @@ using namespace std;
 void Formula1Data::readDriverFile() {  //reads the contents of the driver files and returns
 //unordered_map<string,tuple<string, string, string>> driversMap;
 ifstream driversFile("drivers.csv");
+    if (!driversFile.is_open()) {
+        cerr << "Error: Unable to open file" << endl;
+        return; // Exit the function early
+    }
 string line;
-
 while (getline(driversFile, line)) {
     stringstream ss(line);
     string driverID, firstName, surName, number;
@@ -34,7 +38,7 @@ driversFile.close();
 void Formula1Data::readRacesFile() {  //reads the contents of the racers files and returns
 //unordered_map<string,pair<string, string>> racesMap;
 
-ifstream racersFile("racers.csv");
+ifstream racersFile("races.csv");
 string line;
 
 while (getline(racersFile, line)) {
@@ -57,7 +61,7 @@ void Formula1Data::readLapTimeFile(){
     //unordered_map<string,vector<string>> RaceIDDriverIDMap;
     //Inspired by geeksforgeeks
 
-    ifstream lapTimeFile("tap_times.csv");
+    ifstream lapTimeFile("lap_times.csv");
     string line;
 
     while (getline(lapTimeFile, line)) {
@@ -88,7 +92,7 @@ vector<pair<string,int>> Formula1Data::raceResults(string year, string round){  
         driversInRace.push_back(RaceIDDriverIDMap[raceID][j]);
     }
 
-    int numLaps = lapTimeMap[driversInRace[0]+raceID].size();  //getting number of laps so I can only evaluate that lap
+    int numLaps = lapTimeMap[raceID + driversInRace[0]].size();  //getting number of laps so I can only evaluate that lap
     vector<pair<string, int>> finalVect;    //creating the return vector
 
     for(int i = 0; i < driversInRace.size(); i++){
@@ -96,9 +100,10 @@ vector<pair<string,int>> Formula1Data::raceResults(string year, string round){  
         string firstName = get<0>(driversMap[driversInRace[i]]);
         string lastName = get<1>(driversMap[driversInRace[i]]);
         string number = get<2>(driversMap[driversInRace[i]]);
-        string driverInfo = number + "|" + firstName + " " + lastName;
+        string driverInfo = firstName + " " + lastName + " [#" + number + "]";
         finalVect.push_back(make_pair(driverInfo, position));
     }
+    
     return finalVect;
 }
 
@@ -131,13 +136,9 @@ vector<pair<string,int>> Formula1Data::fastestLaps(string year, string round){  
     return finalVect;
 }
 
-void Formula1Data::printRaces(int year) {
+void Formula1Data::printRaces(string year) {
     //For a given year, print all the races in order
-    while (it != racesInYearMap.end()) {
-        if (it->first == year) {
-            for (int ii = 0; ii < it->second.size(); ii++) {
-                cout << "Race " << it->second[ii].first << ":" << it->second[ii].second << endl;
-            }
-        }
-        it++;
+    for (auto pair : racesInYearMap[year]) {
+        cout << "Race " << pair.first << ":" << pair.second << endl;
     }
+}
