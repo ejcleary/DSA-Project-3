@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <unordered_map>
+#include <map>
 #include <string>
 #include <tuple>
 #include <set>
@@ -91,7 +92,7 @@ vector<pair<string,int>> Formula1Data::raceResults(string year, string round){  
         driversInRace.push_back(RaceIDDriverIDMap[raceID][j]);
     }
 
-    int numLaps = lapTimeMap[driversInRace[0]+raceID].size();  //getting number of laps so I can only evaluate that lap
+    int numLaps = lapTimeMap[raceID + driversInRace[0]].size();  //getting number of laps so I can only evaluate that lap
     vector<pair<string, int>> finalVect;    //creating the return vector
 
     for(int i = 0; i < driversInRace.size(); i++){

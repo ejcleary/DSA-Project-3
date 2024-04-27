@@ -9,7 +9,7 @@
 #include <chrono>
 #include "F1Data.h"
 #include "sorts.h"
-
+#include <map>
 
 using namespace std;
 
@@ -63,6 +63,7 @@ int main() {
         }
 
         auto quick_timer = chrono::high_resolution_clock::now();
+        vector<pair<string, int>> sortedvect;
         quickSort(unsortedvect, low ,high);
         // View winner (sort total lap times per driver = race result)
         auto end_quick = chrono::high_resolution_clock::now();
@@ -70,15 +71,23 @@ int main() {
         cout << "Time taken by Quick Sort: " << quick_duration << " microseconds" << endl;
 
         auto merge_timer = chrono::high_resolution_clock::now();
-        mergeSort(unsortedvect, low ,high);
+        sortedvect = mergeSort(unsortedvect, low ,high);
         // View winner (sort total lap times per driver = race result)
         auto end_merge = chrono::high_resolution_clock::now();
         auto merge_duration = chrono::duration_cast<chrono::microseconds>(end_merge - merge_timer).count();
         cout << "Time taken by Merge Sort: " << merge_duration << " microseconds" << endl;
         cout << "Results:" << endl;
 
-        for(auto pair : unsortedvect){
-            cout << pair.second  << " " << pair.first << endl;
+        for(auto pair : sortedvect){
+            int finalPosition = pair.second;
+            string driverInfo = pair.first;
+            if(finalPosition < 1 || finalPosition > 20){
+                cout << "DNF" << " ";
+            }
+            else{
+                cout << finalPosition  << " ";
+            }
+            cout << driverInfo << endl;
         }
     }
 
