@@ -51,12 +51,13 @@ int split(vector<pair<string, int>> unsortedvect, int low, int high) {
 }
 
 //Main Quick Sort Method
-void quickSort(vector<pair<string, int>> unsortedvect, int low, int high) {
+vector<pair<string, int>> quickSort(vector<pair<string, int>> unsortedvect, int low, int high) {
     if (low < high){
         int pivot = split(unsortedvect, low, high);    // find pivot element such that element smaller than pivot are on the left and greater on the right
         quickSort(unsortedvect, low, pivot - 1);
         quickSort(unsortedvect, pivot + 1, high);
     }
+    return unsortedvect;
 }
 
 
@@ -102,7 +103,7 @@ void merge(vector<pair<string, int>> unsortedvect, int left, int mid, int right)
 }
 
 //Main Merge Sort function
-void mergeSort(vector<pair<string, int>> unsortedvect, int left, int right) {
+vector<pair<string, int>> mergeSort(vector<pair<string, int>> unsortedvect, int left, int right) {
     if (left < right){
         int mid = left + (right - left) / 2;    // m is the point where the array is divided into two subarrays
 
@@ -111,6 +112,7 @@ void mergeSort(vector<pair<string, int>> unsortedvect, int left, int right) {
 
         merge(unsortedvect, left, mid, right);
     }
+    return unsortedvect;
 }
 
 
