@@ -62,48 +62,49 @@ vector<pair<string, int>> quickSort(vector<pair<string, int>> unsortedvect, int 
 
 
 //Merge Sort helper functions
-void merge(vector<pair<string, int>> unsortedvect, int left, int mid, int right) {
+void merge(vector<pair<string, int>> &unsortedvect, int left, int mid, int right) {
     int n1 = mid - left + 1;
     int n2 = right - mid;
-    int X[n1], Y[n2];
+    vector<pair<string,int>> X(n1);
+    vector<pair<string,int>> Y(n2);
 
     for (int i = 0; i < n1; i++) {  // copy data to X and Y
-        X[i] = unsortedvect[left + i].second;
+        X[i] = unsortedvect[left + i];
     }
     for (int j = 0; j < n2; j++) {
-        Y[j] = unsortedvect[mid + 1 + j].second;
+        Y[j] = unsortedvect[mid + 1 + j];
     }
 
     int i, j, k;    // merge the two temporary arrays back into the original array
     i = 0, j = 0, k = left;
 
     while (i < n1 && j < n2){   // while elements in X and Y remain, compare the elements of X and Y
-        if (X[i] <= Y[j]){
-            unsortedvect[k].second = X[i];
+        if (X[i].second <= Y[j].second){
+            unsortedvect[k] = X[i];
             i++;
         }
         else{
-            unsortedvect[k].second = Y[j];
+            unsortedvect[k] = Y[j];
             j++;
         }
         k++;
     }
 
     while (i < n1){ // When we run out of elements in either X or Y append the remaining elements
-        unsortedvect[k].second = X[i];
+        unsortedvect[k] = X[i];
         i++;
         k++;
     }
 
     while (j < n2){
-        unsortedvect[k].second = Y[j];
+        unsortedvect[k] = Y[j];
         j++;
         k++;
     }
 }
 
 //Main Merge Sort function
-vector<pair<string, int>> mergeSort(vector<pair<string, int>> unsortedvect, int left, int right) {
+vector<pair<string, int>> mergeSort(vector<pair<string, int>> &unsortedvect, int left, int right) {
     if (left < right){
         int mid = left + (right - left) / 2;    // m is the point where the array is divided into two subarrays
 
